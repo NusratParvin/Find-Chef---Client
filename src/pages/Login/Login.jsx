@@ -7,9 +7,11 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn , setLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    
+
     console.log('login page location', location)
     const from = location.state?.from?.pathname || '/'
 
@@ -24,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setLoggedIn(true)
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -32,8 +35,8 @@ const Login = () => {
     }
     return (
         <div>
-            login
-            <div class="py-6">
+            
+            <div class="py-6 my-10">
                 <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                     <div class="hidden lg:block lg:w-1/2 bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')" }}></div>
                     <div class="w-full p-8 lg:w-1/2">
