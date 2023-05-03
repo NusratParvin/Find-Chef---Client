@@ -8,4 +8,4 @@ const RecipeDetails = () => {
     );
 };
 
-export default RecipeDetails;RecipeDetails
+export default RecipeDetails;

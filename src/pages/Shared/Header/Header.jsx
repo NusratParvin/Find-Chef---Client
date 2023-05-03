@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { user, logOut, loggedIn,setLoggedIn } = useContext(AuthContext);
-    console.log(user?.email);
+    console.log(user,'header');
     const handleLogout = () => {
         logOut()
             .then(()=>
@@ -55,16 +55,21 @@ const Header = () => {
 
                         <button onClick={handleLogout} className="text-orange-900 font-bold  bg-lime-400  px-6 py-3 hover:bg-lime-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-lime-400 text-sm  text-center inline-flex items-center mr-2 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">LOGOUT</button>
                         :
-                        <Link to="/login">
+                        <><Link to="/login">
                             <button className="text-orange-900 font-bold  bg-lime-400  px-6 py-3 hover:bg-lime-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-lime-400 text-md  text-center inline-flex items-center mr-2 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">LOGIN</button>
                         </Link>
-                    }
 
-                    <Link to="/register">
+                        <Link to="/register">
                         <button className="text-orange-900 bg-lime-400  px-6 py-3 hover:bg-lime-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-lime-400 font-bold text-md  text-center inline-flex items-center mr-2 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">REGISTER
                         <ImArrowRight2 className='ms-2' ></ImArrowRight2>
                         </button>
                     </Link>
+                        </>
+                        
+                    }
+
+                        
+                    
                 </div>
 
 

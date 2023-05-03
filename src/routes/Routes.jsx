@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import RecipeDetails from "../pages/RecipeDetails/RecipeDetails";
 import RecipesLayout from "../layouts/RecipesLayout";
 import AllChefs from "../pages/AllChefs/AllChefs";

@@ -7,12 +7,10 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
 
-    const { signIn , setLoggedIn} = useContext(AuthContext);
+    const { signIn , setLoggedIn, googleSignIn, githubSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     
-
-    console.log('login page location', location)
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
@@ -25,13 +23,40 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                console.log(loggedUser,'logged in login');
                 setLoggedIn(true)
                 navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    const handleGoogleLogin = () =>{
+        googleSignIn()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setLoggedIn(true)
+            navigate(from, { replace: true })
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+
+    const handleGithubLogin = () =>{
+        githubSignIn()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setLoggedIn(true)
+            navigate(from, { replace: true })
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     return (
         <div>
@@ -43,14 +68,14 @@ const Login = () => {
                         <h2 class="text-2xl font-bold text-orange-900 text-center">FindMyChef</h2>
 
                         <div className='flex flex-col md:flex-row gap-2'>
-                            <button className=" w-72 flex items-center justify-normal mt-4 text-orange-900 rounded-lg shadow-lg hover:bg-gray-100">
+                            <button onClick={handleGoogleLogin} className=" w-72 flex items-center justify-normal mt-4 text-orange-900 rounded-lg shadow-lg hover:bg-gray-100">
                                 <div className="ps-4 pe-2 py-3">
                                     <FcGoogle></FcGoogle>
                                 </div>
 
                                 <h1 className="pe-4 py-3 w-5/6 text-center text-orange-950 font-bold">Google Sign in</h1>
                             </button>
-                            <button class=" w-64 flex items-center justify-center mt-4 text-orange-900 rounded-lg shadow-lg hover:bg-gray-100">
+                            <button onClick={handleGithubLogin} class=" w-64 flex items-center justify-center mt-4 text-orange-900 rounded-lg shadow-lg hover:bg-gray-100">
                                 <div className="ps-4 pe-2 py-3">
                                     <FaGithub></FaGithub>
                                 </div>
