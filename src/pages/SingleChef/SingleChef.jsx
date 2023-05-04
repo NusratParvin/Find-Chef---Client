@@ -13,7 +13,7 @@ const SingleChef = ({ chef }) => {
             <div class="  h-100 bg-white shadow-xl ">
 
             <LazyLoad className='object-cover object-top' offset={100} threshold={0.55} height={500} width={310}>          
-                  <img class="mx-auto w-3/4 h-full" src={chef_img} alt="" />
+                  <img class="w-4/5 h-full" src={chef_img} alt="" />
 
     </LazyLoad>
 
