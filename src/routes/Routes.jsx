@@ -7,6 +7,8 @@ import Register from "../pages/Register/Register";
 import LoginLayout from "../layouts/LoginLayout";
 import About from "../pages/About/About";
 import Blog from "../pages/Blog/Blog";
+import Error from "../pages/Error/Error";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -14,6 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RecipesLayout></RecipesLayout>,
+    errorElement: <Error/>,
     children: [
       {
         path: "/",
@@ -27,11 +30,13 @@ const router = createBrowserRouter([
   {
     path:'/',
     element:<LoginLayout></LoginLayout>,
+    errorElement: <Error/>,
     children:[{
         path: "/chefRecipes/:id",
         element:
-          // <PrivateRoute>
-          <RecipeDetails></RecipeDetails>,
+          <PrivateRoute>
+          <RecipeDetails></RecipeDetails>
+          </PrivateRoute>,
         loader: ({ params }) => fetch(`https://find-chef-serverside-nusratparvin.vercel.app/chefRecipes/${params.id}`)
       },
       {

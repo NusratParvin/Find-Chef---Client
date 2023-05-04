@@ -10,8 +10,6 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
-// const currentUser = auth.currentUser;
-
 
 
 const AuthProvider = ({ children }) => {
@@ -58,10 +56,6 @@ const AuthProvider = ({ children }) => {
             console.log('logged in user inside auth state observer', loggedUser)
             // if (loggedIn) {
                 setUser(loggedUser);
-                
-
-               
-                
                 setLoading(false);
             // }
             // else { console.log('log state', loggedIn) }
@@ -72,15 +66,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 console.log(user, 'on auth');
- if (user !== null) {
-                    user.providerData.forEach((profile) => {
-                        console.log("Sign-in provider: " + profile.providerId);
-                        console.log("  Provider-specific UID: " + profile.uid);
-                        console.log("  Name: " + profile.displayName);
-                        console.log("  Email: " + profile.email);
-                        console.log("  Photo URL: " + profile.photoURL);
-                    });
-                }
+
     const authInfo = {
         user,
         loading,

@@ -8,6 +8,10 @@ import logo from '../../../assets/find-chef.jpg'
 
 const Header = () => {
     const { user, logOut, loggedIn, setLoggedIn } = useContext(AuthContext);
+    if(user){
+        setLoggedIn(true)
+        console.log(user,loggedIn);
+    }
     console.log(user, 'header');
     const handleLogout = () => {
         logOut()
@@ -18,7 +22,7 @@ const Header = () => {
                 console.log(err);
             });
     };
-    console.log({ user });
+    console.log( user,loggedIn );
     return (
         <div>
             <header className=" header sticky top-0 bg-white shadow-lg flex md:flex-row flex-col items-center justify-between px-8 py-2">
@@ -46,15 +50,16 @@ const Header = () => {
                 {/* <!-- buttons ---> */}
                 <div className=" w-4/12  flex justify-center md:justify-end">
 
-                    {loggedIn &&
-                        user.photoURL ?
-                        <>
-                             <img class=" text-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+                    {loggedIn &&(
+                        user?.photoURL ?
+                    
+                             <img class=" text-primary text-primary transition duration-150 ease-in-out "
                                     data-te-toggle="tooltip"
                                     title={user.displayName} width={80} className='me-4 rounded-full' src={user.photoURL} /> 
-                        </>
+                        
                         :
-                        <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                        <FaUserCircle className='me-4 mt-2' data-te-toggle="tooltip"
+                        title={user.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
 
                     }
                     {loggedIn ?

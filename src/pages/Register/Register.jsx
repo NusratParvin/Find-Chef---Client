@@ -58,7 +58,8 @@ const Register = () => {
 
                 setSuccessMessage("Your registration is successful")
                 setErrorMessage('')
-                // logOut()
+                logOut()
+                console.log('till nav');
                 navigate('/login')
             })
             .catch(error => {           
