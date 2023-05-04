@@ -50,19 +50,19 @@ const Header = () => {
                 {/* <!-- buttons ---> */}
                 <div className=" w-4/12  flex justify-center md:justify-end">
 
-                    {loggedIn &&(
+                     {user &&( 
                         user?.photoURL ?
                     
                              <img class=" text-primary text-primary transition duration-150 ease-in-out "
                                     data-te-toggle="tooltip"
-                                    title={user.displayName} width={80} className='me-4 rounded-full' src={user.photoURL} /> 
+                                    title={user?.displayName} width={80} className='me-4 rounded-full' src={user?.photoURL} /> 
                         
                         :
                         <FaUserCircle className='me-4 mt-2' data-te-toggle="tooltip"
-                        title={user.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
+                        title={user?.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
 
                     }
-                    {loggedIn ?
+                    {user ?
 
                         <button onClick={handleLogout} className="text-orange-900 font-bold  bg-lime-400  px-6 py-3 hover:bg-lime-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-lime-400 text-sm  text-center inline-flex items-center mr-2 dark:bg-lime-600 dark:hover:bg-lime-700 dark:focus:ring-lime-800">LOGOUT</button>
                         :

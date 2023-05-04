@@ -7,8 +7,8 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     console.log(user,'in private route');
 
-//     if(loading){
-//         return 
+    if(loading){
+        return <p>Loading</p>
         
 //         <div class="text-center">
 //     <div role="status">
@@ -20,7 +20,7 @@ const PrivateRoute = ({children}) => {
 //     </div>
 // </div>
         
-//     }
+    }
 
     if(user){
         return children;
