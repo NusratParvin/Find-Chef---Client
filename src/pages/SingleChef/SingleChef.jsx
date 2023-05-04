@@ -27,10 +27,11 @@ const SingleChef = ({ chef }) => {
                             </span>
                         </div>
 
-                        <Link to={`/${id}`} class="inline-flex  items-center px-3 py-2 text-sm md:text-lg pe-3 font-bold text-center text-orange-900 bg-lime-500 hover:bg-lime-600">
+                        <Link to={`/chefRecipes/${id}`} class="inline-flex  items-center px-3 py-2 text-sm md:text-lg pe-3 font-bold text-center text-orange-900 bg-lime-500 hover:bg-lime-600">
                             View Recipes
                             <ImArrowRight2 className='mx-2 hover:translate-x-2 duration-200'></ImArrowRight2>
-                        </Link></div>
+                        </Link>
+                        </div>
                 </div>
             </div>
 

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} */
+
+.card_img {
+    max-width: 100%;
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.card {
+    position: relative;
+    background: white;
+    max-width: 400px;
+    height: 100%;
+    /* border:1px solid #622101; */
+    /* margin: 20px auto; */
+    /* box-shadow: 0px 0px 30px 2px #9da19d; */
+
+}
+
+.card_header {
+    background: url("http://img.taste.com.au/UZVXAdo7/taste/2016/11/chinese-egg-noodle-and-vegetable-stir-fry-94186-1.jpeg") no-repeat center;
+    ;
+    background-size: cover;
+    min-height: 350px;
+
+}
+
+.like {
+    position: absolute;
+    left: 78%;
+    top: 32%;
+    /* background: rgb(3, 172, 3); */
+    color: red;background: whitesmoke;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 30px 1px rgb(86, 24, 6);
+}
+
+.text .food {
+    color: #622101 ;
+    text-align: left;
+    font-weight: bold;
+    text-transform:capitalize;
+    letter-spacing: 0.0rem;
+    font-size: 22px;
+    margin: 5px 30px;
+}
+
+.text .fa-clock-o {
+    color: #9B9B9B;
+    margin: 0 30px;
+}
+
+.text .fa-users {
+    color: #9B9B9B;
+}
+
+.stars {
+    margin: 10px 30px;
+}
+
+.stars li a i {
+    color: #FFE500;
+}
+
+.info {
+    margin: 10px 30px;
+    list-style:inside;
+    text-transform: capitalize;
+}
+
+.cook {
+    display: block;
+    background:rgb(88, 49, 1);
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    padding: 10px;
+ position: absolute;
+ bottom: 0;
+ width: 50%;
+ 
+}
+

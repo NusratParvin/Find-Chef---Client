@@ -1,0 +1,10 @@
+.sidebar a.active {
+    color:green;
+    font-weight: 500;
+    cursor: pointer;
+    transition-duration: 200ms;
+    /* padding:14px 18px ; */
+    /* padding-top: 20px; */
+
+    border-bottom:2px solid green;
+  }

@@ -41,7 +41,7 @@ const Register = () => {
         <div>
             <div className="h-[calc(100%-5rem)] flex flex-col items-center justify-center bg-lime-200 " >
 
-                <div className="flex flex-col bg-white shadow-4xl px-4 sm:px-6 md:px-8 lg:px-10 w-1/2 py-10 my-8">
+                <div className="flex flex-col bg-white shadow-4xl px-4 sm:px-6 md:px-8 lg:px-10 md:w-1/2 w-screen py-10 my-8">
 
                     <div className="font-bold tracking-normal self-center text-xl sm:text-4xl  text-orange-900"> Join us Now </div>
 
