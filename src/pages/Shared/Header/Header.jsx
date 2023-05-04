@@ -1,10 +1,10 @@
-import { Container } from 'postcss';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa'
 import { ImArrowRight2 } from 'react-icons/im'
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
+import logo from '../../../assets/find-chef.jpg'
 
 const Header = () => {
     const { user, logOut, loggedIn, setLoggedIn } = useContext(AuthContext);
@@ -18,12 +18,13 @@ const Header = () => {
                 console.log(err);
             });
     };
+    console.log({ user });
     return (
         <div>
             <header className=" header sticky top-0 bg-white shadow-lg flex md:flex-row flex-col items-center justify-between px-8 py-2">
                 {/* <!-- logo --> */}
                 <div className='w-3/12 flex justify-center'>
-                    <img width={90} src='../../../../public/find-chef.jpg' />
+                    <img width={90} src={logo} />
                     <h2 className=' text-3xl text-orange-900 font-bold my-auto'>FindMyChef</h2>
 
                 </div>
@@ -45,8 +46,15 @@ const Header = () => {
                 {/* <!-- buttons ---> */}
                 <div className=" w-4/12  flex justify-center md:justify-end">
 
-                    {
-                        loggedIn && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                    {loggedIn &&
+                        user.photoURL ?
+                        <>
+                             <img class=" text-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+                                    data-te-toggle="tooltip"
+                                    title={user.displayName} width={80} className='me-4 rounded-full' src={user.photoURL} /> 
+                        </>
+                        :
+                        <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
 
                     }
                     {loggedIn ?

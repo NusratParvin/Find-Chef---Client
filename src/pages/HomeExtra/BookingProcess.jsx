@@ -40,7 +40,7 @@ const BookingProcess = () => {
                 <div className='md:w-2/3  text-orange-950 '>
                     <h3 className='text-xl font-bold uppercase'>CLEAN EATING
                     </h3>
-                    <p className='text-xl py-3 font-normal'>Enjoy home cooked meals tailored to your taste and diet profile.
+                    <p className='text-lg py-3 font-normal'>Enjoy home cooked meals tailored to your taste and diet profile.
 
                     </p>
                 </div>
@@ -51,7 +51,7 @@ const BookingProcess = () => {
                 <div className='md:w-2/3  text-orange-950 '>
                     <h3 className='text-xl font-bold uppercase'>VARIETY AND AUTHENTIC TASTE
 </h3>
-                    <p className='text-xl py-3 font-normal'>Our chefs are skilled at a variety of cuisines that promise authentic flavors.</p>
+                    <p className='text-lg py-3 font-normal'>Our chefs are skilled at a variety of cuisines that promise authentic flavors.</p>
                 </div>
                 <img width={100} className='bg-lime-200 p-4' src="https://heychef.ae/wp-content/uploads/2020/05/any-cusine-any-taste.png" alt="" />
             </div>
@@ -59,7 +59,7 @@ const BookingProcess = () => {
             <div className='flex md:flex-row flex-col ms-8 justify-evenly mb-6'>
                 <div className='md:w-2/3  text-orange-950 '>
                     <h3 className='text-xl font-bold uppercase'>ALL INCLUSIVE, NO HIDDEN COSTS  </h3>
-                    <p className='text-xl py-3 font-normal'>Our services have no additional or hidden charges. You simply pay by the hour.</p>
+                    <p className='text-lg py-3 font-normal'>Our services have no additional or hidden charges. You simply pay by the hour.</p>
                 </div>
                 <img width={100} className='bg-lime-200 p-4' src="https://heychef.ae/wp-content/uploads/2020/05/no-hidden-costs.png" alt="" />
             </div>
@@ -68,7 +68,7 @@ const BookingProcess = () => {
                 <div className='md:w-2/3  text-orange-950 '>
                     <h3 className='text-xl font-bold uppercase'>LIFE MADE EASY
 </h3>
-                    <p className='text-xl py-3 font-normal'>Book a chef at your convenience, any time anywhere, with just a click of a button!</p>
+                    <p className='text-lg py-3 font-normal'>Book a chef at your convenience, any time anywhere, with just a click of a button!</p>
                 </div>
                 <img width={100} className='bg-lime-200 p-4' src="https://heychef.ae/wp-content/uploads/2020/05/life-made-easy.png" alt="" />
             </div>

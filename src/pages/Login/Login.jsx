@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 
@@ -10,6 +10,8 @@ const Login = () => {
     const { signIn , setLoggedIn, googleSignIn, githubSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [errorMessage,setErrorMessage]=useState('')
+    const [successMessage, setSuccessMessage] = useState('')
     
     const from = location.state?.from?.pathname || '/'
 
@@ -20,42 +22,60 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
+        setErrorMessage('')
+        setSuccessMessage('')
+
+        
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser,'logged in login');
                 setLoggedIn(true)
+                setSuccessMessage("You are successfully logged in!")
+                setErrorMessage('')
                 navigate(from, { replace: true })
             })
-            .catch(error => {
-                console.log(error);
+            .catch(error => {console.log('in err');
+                setErrorMessage(error.code.slice(5))
+                
             })
+            console.log(errorMessage);
     }
 
     const handleGoogleLogin = () =>{
+        setErrorMessage('')
+        setSuccessMessage('')
+
         googleSignIn()
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
             setLoggedIn(true)
+            setSuccessMessage("You are successfully logged in!")
+                setErrorMessage('')
             navigate(from, { replace: true })
         })
         .catch(error => {
-            console.log(error);
+            setErrorMessage(error.message)
         })
     }
 
 
     const handleGithubLogin = () =>{
+        setErrorMessage('')
+        setSuccessMessage('')
+
         githubSignIn()
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
             setLoggedIn(true)
+            setSuccessMessage("You are successfully logged in!")
+                setErrorMessage('')
             navigate(from, { replace: true })
         })
         .catch(error => {
-            console.log(error);
+            setErrorMessage(error.message)
         })
     }
     return (
@@ -87,7 +107,7 @@ const Login = () => {
 
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 lg:w-1/4"></span>
-                            <a href="#" className="text-sm text-center text-orange-900 uppercase">or login with email</a>
+                            <p className="text-sm text-center text-orange-900 uppercase">or login with email</p>
                             <span className="border-b w-1/5 lg:w-1/4"></span>
                         </div>
 
@@ -102,6 +122,19 @@ const Login = () => {
                             </div>
                             <input class="bg-lime-200 text-orange-950 focus:outline-none focus:shadow-outline border-none rounded py-2 px-4 block w-full appearance-none" type="password" name='password' required />
                         </div>
+
+                        {
+                            errorMessage &&
+                            <p className='text-red-600 pt-2'>Your email and password does not match</p>
+                           
+                        }
+                        {
+                            successMessage &&
+                            <p className='text-green-600 pt-2'>
+                                {successMessage}</p>
+                           
+                        }
+
                         <div class="mt-8">
                             <button type='submit' className="bg-lime-500 text-orange-950 font-bold py-2 px-4 w-full rounded hover:bg-lime-700">Login</button>
                         </div> 
@@ -109,7 +142,7 @@ const Login = () => {
                         
                         <div class="mt-4 flex items-center justify-between">
                             <span class="border-b w-1/5 md:w-1/4"></span>
-                            <a href="#" class="text-sm text-orange-900 uppercase">or sign up here </a>
+                            <Link to='/register' class="text-sm text-orange-900 uppercase">or sign up here </Link>
                             <span class="border-b w-1/5 md:w-1/4"></span>
                         </div>
                     </div>

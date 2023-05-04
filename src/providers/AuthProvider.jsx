@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -10,7 +10,7 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
-
+// const currentUser = auth.currentUser;
 
 
 
@@ -39,6 +39,14 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     }
 
+    const setProfile = (newUser, name,photo) => {
+        setLoading(true);
+        return updateProfile(newUser, {
+            displayName: name,
+            photoURL:photo
+        })
+    }
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -48,19 +56,31 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             console.log('logged in user inside auth state observer', loggedUser)
-            if(loggedIn){
-            setUser(loggedUser);
-            console.log(user,'on auth');
-            setLoading(false);    
-            }
-            else{ console.log('log state',loggedIn)}
+            // if (loggedIn) {
+                setUser(loggedUser);
+                
+
+               
+                
+                setLoading(false);
+            // }
+            // else { console.log('log state', loggedIn) }
         })
 
         return () => {
             unsubscribe();
         }
     }, [])
-
+console.log(user, 'on auth');
+ if (user !== null) {
+                    user.providerData.forEach((profile) => {
+                        console.log("Sign-in provider: " + profile.providerId);
+                        console.log("  Provider-specific UID: " + profile.uid);
+                        console.log("  Name: " + profile.displayName);
+                        console.log("  Email: " + profile.email);
+                        console.log("  Photo URL: " + profile.photoURL);
+                    });
+                }
     const authInfo = {
         user,
         loading,
@@ -70,6 +90,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleSignIn,
         githubSignIn,
+        setProfile,
         logOut
     }
 

@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div>
             <div className=' h-24'>
-                <p class=" text-center uppercase tracking-wide py-5 font-sans  font-bold text-orange-900 md:text-3xl">Traditional and Modern Chinese Cooking at Home</p>
+                <p class=" text-center uppercase py-5 font-sans  font-bold text-orange-900 md:text-3xl">Traditional and Modern Chinese Cooking at Home</p>
 
             </div>
 
