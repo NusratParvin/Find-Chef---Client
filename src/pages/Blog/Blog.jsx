@@ -15,7 +15,7 @@ const Blog = () => {
                 <div className='flex justify-start md:justify-between flex-col md:flex-row'>
                     <h3 className='text-3xl font-bold pb-10'>Q/A</h3>
                     <Pdf targetRef={ref} filename="blog.pdf">
-                        {({ toPdf }) => <button onClick={toPdf} className='my-3 px-6 text-orange-950 font-semibold align-top text-lg bg-lime-400'>Download Pdf</button>}
+                        {({ toPdf }) => <button onClick={toPdf} className='my-3 px-6 text-orange-950 uppercase font-semibold align-top text-lg bg-lime-400'>Download Pdf</button>}
                     </Pdf>
                 </div>
 

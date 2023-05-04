@@ -2,6 +2,7 @@ import React from 'react';
 import { AiFillLike } from 'react-icons/ai';
 import { ImArrowRight2 } from 'react-icons/im'
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const SingleChef = ({ chef }) => {
 
@@ -11,7 +12,11 @@ const SingleChef = ({ chef }) => {
         <div>
             <div class="  h-100 bg-white shadow-xl ">
 
-                <img class="w-full h-72 object-cover object-top" src={chef_img} alt="" />
+            <LazyLoad className='object-cover object-top' offset={100} threshold={0.55} height={500} width={310}>          
+                  <img class="mx-auto w-3/4 h-full" src={chef_img} alt="" />
+
+    </LazyLoad>
+
                 <div class="p-5">
                     <Link to={`/${id}`}>
                         <h5 class="mb-2 text-xl font-bold tracking-normal text-orange-900">{chef_name}</h5>

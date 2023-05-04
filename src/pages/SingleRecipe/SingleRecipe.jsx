@@ -13,7 +13,7 @@ const SingleRecipe = ({ recipe }) => {
     return (
         <div >
            
-            <div class="card h-72 shadow-2xl shadow-slate-600">
+            <div class="card mx-2 h-72 shadow-2xl shadow-slate-600">
                 <div class="card-header">
                     <img className='card_img' src={recipe_img} alt="" />
                     <button onClick={handleToast} 
@@ -26,15 +26,6 @@ const SingleRecipe = ({ recipe }) => {
                     <i class="fa fa-clock-o"> 15 Mins</i>
                     <i class="fa fa-users"> Serves 2</i>
 
-                    {/* <div class="stars">
-                        <li>
-                            <a href="#"><i class="fa fa-star"></i></a>
-                            <a href="#"><i class="fa fa-star"></i></a>
-                            <a href="#"><i class="fa fa-star"></i></a>
-                            <a href="#"><i class="fa fa-star"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                        </li>
-                    </div> */}
                     <div>
                         <h2 className='food'>Ingredients:</h2>
                         <ul className="info font-medium">
@@ -46,10 +37,10 @@ const SingleRecipe = ({ recipe }) => {
                     </div>
 
                     <div className='pb-10 mt-6'>
-                        <h2 className='food'>How to Cook:</h2> 
+                        <h2 className='food text-md'>How to Cook:</h2> 
                         <div className="info font-medium">
                             {
-                                cooking_method.map(i => <p className='text-orange-950 text-md'>{i}</p>)
+                                cooking_method.map(i => <p className='text-orange-950 text-sm'>{i}</p>)
                             }
 
                         </div>

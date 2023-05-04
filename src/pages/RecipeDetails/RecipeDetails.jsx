@@ -27,15 +27,15 @@ const RecipeDetails = () => {
                             </div>
                             <div className="w-full md:w-1/2 px-10">
                                 <div className="mb-10">
-                                    <h1 className="font-bold uppercase text-4xl mb-5">{chefDetails[0].chef_name}</h1>
-                                    <p class="text-sm md:text-xl">{chefDetails[0].bio}</p>
+                                    <h1 className="font-bold uppercase text-3xl mb-5">{chefDetails[0].chef_name}</h1>
+                                    <p class="text-sm md:text-lg">{chefDetails[0].bio}</p>
                                 </div>
                                 <div>
                                     <div class="flex md:flex-row flex-col justify-between gap-2">
-                                        <p class="text-orange-950 px-6 py-2 font-semibold bg-lime-100">Cooking for<span className='text-2xl font-bolder  px-1'> {chefDetails[0].experience}</span>years</p>
+                                        <p class="text-orange-950 px-6 py-2 text-sm font-semibold bg-lime-100">Cooking for<span className='text-lg font-bolder  px-1'> {chefDetails[0].experience}</span>years</p>
 
-                                        <p class="text-orange-950 px-6 py-2 font-semibold 
-                                    bg-lime-100">Developed<span className='text-2xl font-bolder  px-1'> {chefDetails[0].recipes_num}</span>recipes</p>
+                                        <p class="text-orange-950 px-6 py-2 font-semibold text-sm
+                                    bg-lime-100">Developed<span className='text-lg font-bolder  px-1'> {chefDetails[0].recipes_num}</span>recipes</p>
                                     </div>
 
                                     <div class="inline-block align-middle mt-6 mr-5">
@@ -53,9 +53,9 @@ const RecipeDetails = () => {
             </div>
 
             <div className='mb-24'>
-                    <h2 className='text-orange-900 font-bold text-4xl  pb-8 pt-44 text-center'>My Top Recipes 
+                    <h2 className='text-orange-900 font-bold text-4xl  pb-8 pt-44 text-center uppercase'>My Top Recipes 
                     </h2> 
-                <div className='w-10/12 mx-auto mt-4 grid grid-cols-1 md:grid-cols-3 gap-0 px-0'>
+                <div className='w-10/12 mx-auto mt-4 grid grid-cols-1 md:grid-cols-3 gap-3  px-0'>
                     {
                         (recipes.slice(0,3)).map(recipe => <SingleRecipe key={chefDetails[0].chef_id} recipe={recipe}></SingleRecipe>)
                     }
